@@ -21,12 +21,12 @@ const App = () => {
       <h4>イベント一覧</h4>
       <table className="table table-hover">
         <thead>
-          <tr>
-            <th>ID</th>
-            <th>タイトル</th>
-            <th>内容</th>
-            <th></th>
-          </tr>
+        <tr>
+          <th>ID</th>
+          <th>タイトル</th>
+          <th>内容</th>
+          <th></th>
+        </tr>
         </thead>
         <tbody>
 
