@@ -1,4 +1,5 @@
 import React from "react";
+
 const Event = ({ event, dispatch }) => {
   const id = event.id
   const handleClickDeleteBtn = () => {
@@ -19,4 +20,5 @@ const Event = ({ event, dispatch }) => {
     </tr>
   )
 }
+
 export default Event
