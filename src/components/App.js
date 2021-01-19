@@ -1,4 +1,5 @@
 import React, { useState, useReducer } from 'react'
+import Event from '../components/Event'
 import reducer from '../reducers'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
@@ -21,6 +22,7 @@ const App = () => {
 
     dispatch({ type: 'DELETE_ALL_EVENTS' })
   }
+
 
   return (
     <div className="container-fluid">
@@ -68,7 +70,7 @@ const App = () => {
         </tr>
         </thead>
         <tbody>
-
+        { state.map((e, i) => ( <Event key={i} event={e} dispatch={dispatch} /> )) }
         </tbody>
       </table>
     </div>
