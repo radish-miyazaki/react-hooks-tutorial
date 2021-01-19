@@ -51,7 +51,7 @@ const EventForm = () => {
           イベントを作成
         </button>
         <button
-          disabled={state.length === 0}
+          disabled={state.events.length === 0}
           className="btn btn-danger"
           onClick={deleteAllEvents}
         >
