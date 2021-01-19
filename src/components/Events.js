@@ -2,8 +2,8 @@ import React, { useContext } from "react";
 import Event from "./Event";
 import AppContext from "../contexts/AppContext"
 
-const Events = ({ state, dispatch }) => {
-  const v = useContext(AppContext)
+const Events = () => {
+  const { state } = useContext(AppContext)
 
   return (
     <>
@@ -14,15 +14,14 @@ const Events = ({ state, dispatch }) => {
           <th>ID</th>
           <th>タイトル</th>
           <th>内容</th>
-          <th></th>
+          <th>*</th>
         </tr>
         </thead>
         <tbody>
         { state.map((e, i) => (
           <Event
             key={i}
-            event={e}
-            dispatch={dispatch} />)
+            event={e} />)
         )}
         </tbody>
       </table>
