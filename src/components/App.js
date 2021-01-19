@@ -19,10 +19,11 @@ const App = () => {
 
   const deleteAllEvents = e => {
     e.preventDefault()
-
-    dispatch({ type: 'DELETE_ALL_EVENTS' })
+    const result = window.confirm('全てのイベントを削除しますか？')
+    if (result) dispatch({ type: 'DELETE_ALL_EVENTS' })
   }
 
+  const unCreatable = title === '' || body === ''
 
   return (
     <div className="container-fluid">
@@ -46,12 +47,14 @@ const App = () => {
             id="formEventBody" />
         </div>
         <button
+          disabled={unCreatable}
           className="btn btn-primary"
           onClick={addEvent}
         >
           イベントを作成
         </button>
         <button
+          disabled={state.length === 0}
           className="btn btn-danger"
           onClick={deleteAllEvents}
         >
@@ -70,7 +73,9 @@ const App = () => {
         </tr>
         </thead>
         <tbody>
-        { state.map((e, i) => ( <Event key={i} event={e} dispatch={dispatch} /> )) }
+        { state.map((e, i) => (
+          <Event key={i} event={e} dispatch={dispatch} />)
+        )}
         </tbody>
       </table>
     </div>
