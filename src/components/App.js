@@ -1,6 +1,7 @@
 import React, { useReducer } from 'react'
 import Events from './Events'
 import EventForm from './EventForm'
+import Logs from "./Logs"
 import reducer from '../reducers'
 import AppContext from "../contexts/AppContext"
 import 'bootstrap/dist/css/bootstrap.min.css'
@@ -14,6 +15,7 @@ const App = () => {
       <div className="container-fluid">
         <EventForm />
         <Events />
+        <Logs />
       </div>
     </AppContext.Provider>
   )
