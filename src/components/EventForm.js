@@ -3,7 +3,8 @@ import {
   CREATE_EVENT,
   DELETE_ALL_EVENTS,
   ADD_OPERATION_LOG,
-  DELETE_ALL_OPERATION_LOGS
+  DELETE_ALL_OPERATION_LOGS,
+  DELETE_OPERATION_LOGS
 } from "../actions"
 import { timeCurrentISO8601 } from "../utils";
 import AppContext from "../contexts/AppContext"
@@ -47,6 +48,16 @@ const EventForm = () => {
     }
   }
 
+  const deleteAllOperationLogs = e => {
+    e.preventDefault()
+    const result = window.confirm('全ての操作ログを削除しますか？')
+    if (result) {
+      dispatch({
+        type: DELETE_OPERATION_LOGS
+      })
+    }
+  }
+
   const unCreatable = title === '' || body === ''
 
   return (
@@ -83,6 +94,13 @@ const EventForm = () => {
           onClick={deleteAllEvents}
         >
           全てのイベントを削除
+        </button>
+        <button
+          disabled={state.operationLogs.length === 0}
+          className="btn btn-danger"
+          onClick={deleteAllOperationLogs}
+        >
+          全ての操作ログを削除
         </button>
       </form>
     </>
